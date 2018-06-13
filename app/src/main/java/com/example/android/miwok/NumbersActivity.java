@@ -27,13 +27,11 @@ public class NumbersActivity extends AppCompatActivity {
         numbers.add("nine");
         numbers.add("ten");
 
-        int index = 0;
-        while (index < 10) {
+        for (int index = 0; index < 10; index++) {
             LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
             TextView wordView = new TextView(this);
             wordView.setText(numbers.get(index));
             rootView.addView(wordView);
-            index++;
         }
     }
 }
