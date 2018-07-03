@@ -24,4 +24,6 @@ public class Word {
     public String getDefaultTranslation() {
         return mDefaultTranslation;
     }
+
+    public int getImageResourceId() { return mImageResourceId; }
 }
