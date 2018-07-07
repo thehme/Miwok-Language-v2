@@ -14,15 +14,10 @@ public class Word {
     /** media resource **/
     private int mMediaResourceId;
 
-    public  Word(String miwokTranslation, String defaultTranslation) {
+    public  Word(String miwokTranslation, String defaultTranslation, int mediaResourceId) {
         mMiwokTranslation = miwokTranslation;
         mDefaultTranslation = defaultTranslation;
-    }
-
-    public Word(String miwokTranslation, String defaultTranslation, int imageResourceId) {
-        mMiwokTranslation = miwokTranslation;
-        mDefaultTranslation = defaultTranslation;
-        mImageResourceId = imageResourceId;
+        mMediaResourceId = mediaResourceId;
     }
 
     public Word(String miwokTranslation, String defaultTranslation, int imageResourceId, int mediaResourceId) {
