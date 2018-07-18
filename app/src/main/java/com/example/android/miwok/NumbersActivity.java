@@ -18,7 +18,7 @@ public class NumbersActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPlayer;
 
-    private MediaPlayer.OnCompletionListener mCompletionListner = new MediaPlayer.OnCompletionListener() {
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mediaPlayer) {
             releaseMediaPlayer();
@@ -55,7 +55,7 @@ public class NumbersActivity extends AppCompatActivity {
                 releaseMediaPlayer();
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getMediaResourceId());
                 mMediaPlayer.start(); // no need to call prepare(); create() does that for you
-                mMediaPlayer.setOnCompletionListener(mCompletionListner);
+                mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
     }
