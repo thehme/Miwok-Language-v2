@@ -15,15 +15,9 @@
  */
 package com.example.android.miwok;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.EventListener;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -33,44 +27,13 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        // attach event listener to numbers TextView
-        TextView numbersActivity = (TextView) findViewById(R.id.numbers);
-        numbersActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent numberActivityIntent = new Intent(MainActivity.this, NumbersActivity.class);
-                startActivity(numberActivityIntent);
-            }
-        });
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        // attach event listener to colors TextView
-        TextView colorsActivity = (TextView) findViewById(R.id.colors);
-        colorsActivity.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent colorsActivityIntent = new Intent(MainActivity.this, ColorsActivity.class);
-                startActivity(colorsActivityIntent);
-            }
-        });
+        // Create an adapter that knows which fragment should be shown on each page
+        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
 
-        // attach event listener to family TextView
-        TextView familyActivity = (TextView) findViewById(R.id.family);
-        familyActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent familyActivityIntent = new Intent(MainActivity.this, FamilyActivity.class);
-                startActivity(familyActivityIntent);
-            }
-        });
-
-        // attach event listener to phrases TextView
-        TextView phrasesActivity = (TextView) findViewById(R.id.phrases);
-        phrasesActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent phrasesActivityIntent = new Intent(MainActivity.this, PhrasesActivity.class);
-                startActivity(phrasesActivityIntent);
-            }
-        });
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
     }
 }
